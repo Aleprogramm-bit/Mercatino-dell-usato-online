@@ -1,1 +1,1 @@
-Questo sarà lo spazio per un bellissimo sito.
+Questo sarà lo spazio per un bellissimo mercato dell'usato online.
