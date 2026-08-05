@@ -3,46 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mini Subito - Annunci</title>
+    <title>Mercato Smart - Annunci</title>
     <style>
         :root {
             --bg: #f5f5f5;
             --bg-card: #ffffff;
             --text: #222222;
             --text-soft: #777777;
-            --accent: #ff5a00;
-            --accent-soft: #fff3e6;
+            --accent: #1e88ff;
+            --accent-soft: #e3f2fd;
         }
 
-        /* Tema scuro automatico in base alle impostazioni del sistema / browser */
         @media (prefers-color-scheme: dark) {
             :root {
-                --bg: #121212;
-                --bg-card: #1e1e1e;
-                --text: #f5f5f5;
-                --text-soft: #aaaaaa;
-                --accent: #ff8a3c;
-                --accent-soft: #2a1a10;
+                --bg: #0f172a;
+                --bg-card: #111827;
+                --text: #e5e7eb;
+                --text-soft: #9ca3af;
+                --accent: #3b82f6;
+                --accent-soft: #1e293b;
             }
-        }
-
-        /* Tema forzato via data-theme (override manuale) */
-        :root[data-theme="light"] {
-            --bg: #f5f5f5;
-            --bg-card: #ffffff;
-            --text: #222222;
-            --text-soft: #777777;
-            --accent: #ff5a00;
-            --accent-soft: #fff3e6;
-        }
-
-        :root[data-theme="dark"] {
-            --bg: #121212;
-            --bg-card: #1e1e1e;
-            --text: #f5f5f5;
-            --text-soft: #aaaaaa;
-            --accent: #ff8a3c;
-            --accent-soft: #2a1a10;
         }
 
         body {
@@ -50,22 +30,36 @@
             background: var(--bg);
             color: var(--text);
             margin: 0;
-            padding: 0;
         }
 
         header {
-            background: var(--accent);
+            background: linear-gradient(90deg, #1e88ff, #3b82f6);
             color: white;
-            padding: 20px;
-            text-align: center;
-            position: relative;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-area img {
+            width: 40px;
+            height: 40px;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .logo-area span {
+            font-weight: bold;
+            font-size: 18px;
         }
 
         .theme-toggle {
-            position: absolute;
-            right: 20px;
-            top: 50%;
-            transform: translateY(-50%);
             background: rgba(255,255,255,0.15);
             border: 1px solid rgba(255,255,255,0.4);
             color: white;
@@ -84,9 +78,10 @@
         .intro {
             background: var(--bg-card);
             padding: 20px;
-            border-radius: 10px;
+            border-radius: 16px;
             margin-bottom: 20px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            box-shadow: 0 12px 30px rgba(15,23,42,0.25);
+            background-image: radial-gradient(circle at top left, rgba(59,130,246,0.25), transparent 55%);
         }
 
         .intro h2 {
@@ -98,7 +93,7 @@
             padding: 10px;
             background: var(--accent-soft);
             border-left: 4px solid var(--accent);
-            border-radius: 5px;
+            border-radius: 10px;
         }
 
         .contacts a {
@@ -108,36 +103,68 @@
 
         .annunci {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
             gap: 20px;
         }
 
         .card {
             background: var(--bg-card);
-            border-radius: 10px;
+            border-radius: 18px;
             overflow: hidden;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(15,23,42,0.25);
+            transition: transform 0.18s ease, box-shadow 0.18s ease;
+            position: relative;
         }
 
-        .card img {
-            width: 100%;
-            height: 180px;
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 35px rgba(15,23,42,0.35);
+        }
+
+        .card-top {
+            padding: 18px 18px 10px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .card-top img {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
             object-fit: cover;
+            box-shadow: 0 6px 16px rgba(15,23,42,0.35);
         }
 
         .card-content {
-            padding: 15px;
+            padding: 0 18px 18px;
+            text-align: center;
         }
 
         .card-content h3 {
-            margin: 0;
+            margin: 8px 0 4px;
+            font-size: 18px;
         }
 
-        .price {
-            color: var(--accent);
-            font-size: 18px;
-            font-weight: bold;
-            margin: 5px 0;
+        .card-content p {
+            margin: 0;
+            color: var(--text-soft);
+            font-size: 14px;
+        }
+
+        .card-btn {
+            margin-top: 12px;
+        }
+
+        .card-btn a {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: 999px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(59,130,246,0.45);
         }
 
         footer {
@@ -150,15 +177,18 @@
 <body>
 
 <header>
-    <h1>Mini Subito - Annunci</h1>
+    <div class="logo-area">
+        <img src="logo.png" alt="Mercato Smart">
+        <span>Mercato Smart</span>
+    </div>
     <button class="theme-toggle" id="themeToggle">Auto</button>
 </header>
 
 <div class="container">
 
     <div class="intro">
-        <h2>Benvenuto!</h2>
-        <p>Questo è un sito di annunci semplice, dove puoi pubblicare oggetti da vendere o cercare ciò che ti serve.</p>
+        <h2>Benvenuto su Mercato Smart</h2>
+        <p>Un piccolo mercato online dove puoi pubblicare e trovare oggetti in modo semplice.</p>
 
         <div class="contacts">
             <p><strong>Aggiungere un oggetto:</strong><br>
@@ -173,58 +203,57 @@
         </div>
     </div>
 
-    <h2>Annunci disponibili</h2>
+    <h2>Annunci in evidenza</h2>
 
     <div class="annunci" id="annunci"></div>
 
 </div>
 
 <footer>
-    © 2026 Mini Subito - Creato da Aleprogramm
+    © 2026 Mercato Smart - Creato da Aleprogramm
 </footer>
 
 <script>
-    // Annunci statici (modificabili)
     const annunci = [
         {
-            titolo: "Monitor 144Hz",
-            prezzo: "120€",
-            img: "img/monitor.jpg",
-            descrizione: "Perfetto, nessun pixel morto."
-        },
-        {
-            titolo: "Cuffie Gaming RGB",
-            prezzo: "40€",
-            img: "img/cuffie.jpg",
-            descrizione: "Ottimo suono, luci personalizzabili."
-        },
-        {
-            titolo: "Mouse Wireless",
-            prezzo: "15€",
-            img: "img/mouse.jpg",
-            descrizione: "Batteria lunga durata."
+            titolo: "Esempio annuncio",
+            descrizione: "Qui puoi mettere un oggetto reale da vendere.",
+            img: "logo.png",
+            link: "#"
         }
     ];
 
     const container = document.getElementById("annunci");
 
-    annunci.forEach(a => {
-        const card = document.createElement("div");
-        card.className = "card";
-
-        card.innerHTML = `
-            <img src="${a.img}" alt="${a.titolo}">
-            <div class="card-content">
-                <h3>${a.titolo}</h3>
-                <p class="price">${a.prezzo}</p>
-                <p>${a.descrizione}</p>
+    if (annunci.length === 0) {
+        container.innerHTML = `
+            <div style="padding:20px; background:var(--bg-card); border-radius:16px; text-align:center;">
+                <h3>Nessun annuncio disponibile</h3>
+                <p>Invia un'email per aggiungere un oggetto da vendere.</p>
             </div>
         `;
+    } else {
+        annunci.forEach(a => {
+            const card = document.createElement("div");
+            card.className = "card";
 
-        container.appendChild(card);
-    });
+            card.innerHTML = `
+                <div class="card-top">
+                    <img src="${a.img}" alt="${a.titolo}">
+                </div>
+                <div class="card-content">
+                    <h3>${a.titolo}</h3>
+                    <p>${a.descrizione}</p>
+                    <div class="card-btn">
+                        <a href="${a.link}">Vai al dettaglio</a>
+                    </div>
+                </div>
+            `;
 
-    // Gestione tema: auto / light / dark
+            container.appendChild(card);
+        });
+    }
+
     const root = document.documentElement;
     const toggleBtn = document.getElementById('themeToggle');
 
@@ -240,7 +269,6 @@
         }
     }
 
-    // Carica tema salvato
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme === 'light' || savedTheme === 'dark') {
         setTheme(savedTheme);
@@ -248,7 +276,6 @@
         setTheme('auto');
     }
 
-    // Ciclo: Auto → Chiaro → Scuro
     toggleBtn.addEventListener('click', () => {
         const current = localStorage.getItem('theme') || 'auto';
         if (current === 'auto') setTheme('light');
