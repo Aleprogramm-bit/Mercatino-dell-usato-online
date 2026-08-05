@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mercato Smart - Annunci</title>
+    <title>Mercato Smart - Categorie</title>
 
     <style>
         :root {
@@ -37,25 +37,18 @@
             padding: 12px 20px;
             display: flex;
             align-items: center;
-            justify-content: space-between;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
             gap: 10px;
         }
 
-        .logo-area img {
+        header img {
             width: 40px;
             height: 40px;
             border-radius: 8px;
-            object-fit: cover;
         }
 
-        .logo-area span {
+        header span {
+            font-size: 20px;
             font-weight: bold;
-            font-size: 18px;
         }
 
         .container {
@@ -64,30 +57,13 @@
             margin: 20px auto;
         }
 
-        .intro {
-            background: var(--bg-card);
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        h2 {
+            margin-bottom: 15px;
         }
 
-        .contacts {
-            margin-top: 10px;
-            padding: 10px;
-            background: rgba(30,136,255,0.15);
-            border-left: 4px solid var(--accent);
-            border-radius: 8px;
-        }
-
-        .contacts a {
-            color: var(--accent);
-            font-weight: bold;
-        }
-
-        .annunci {
+        .categorie {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
             gap: 20px;
         }
 
@@ -95,26 +71,26 @@
             background: var(--bg-card);
             border-radius: 12px;
             padding: 12px;
+            text-align: center;
             box-shadow: 0 4px 12px rgba(0,0,0,0.15);
             transition: transform 0.18s ease, box-shadow 0.18s ease;
         }
 
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+            transform: translateY(-6px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
         }
 
         .card img {
             width: 100%;
-            height: 160px;
+            height: 180px;
             object-fit: cover;
-            border-radius: 8px;
+            border-radius: 10px;
         }
 
         .card h3 {
             margin: 10px 0 6px;
             font-size: 18px;
-            color: var(--text);
         }
 
         .card p {
@@ -123,7 +99,7 @@
             font-size: 14px;
         }
 
-        .buy-btn {
+        .card a {
             display: inline-block;
             padding: 8px 14px;
             background: var(--accent);
@@ -144,107 +120,47 @@
 <body>
 
 <header>
-    <div class="logo-area">
-        <img src="logo.png" alt="Mercato Smart">
-        <span>Mercato Smart</span>
-    </div>
+    <img src="logo.png" alt="Logo">
+    <span>Mercato Smart</span>
 </header>
 
 <div class="container">
 
-    <div class="intro">
-        <h2>Benvenuto su Mercato Smart</h2>
-        <p>Il mercato veloce dove puoi pubblicare e trovare oggetti in modo semplice.</p>
+    <h2>Categorie</h2>
 
-        <div class="contacts">
-            <p><strong>Aggiungere un oggetto:</strong><br>
-            <a href="mailto:vigonetechteam@protonmail.com?subject=Aggiunta%20Annuncio">
-                vigonetechteam@protonmail.com
-            </a></p>
+    <div class="categorie">
 
-            <p><strong>Rimuovere un oggetto:</strong><br>
-            <a href="mailto:vigonetechteam@protonmail.com?subject=Rimozione%20Annuncio">
-                vigonetechteam@protonmail.com
-            </a></p>
+        <!-- CASA -->
+        <div class="card">
+            <img src="casa.png" alt="Casa">
+            <h3>Casa</h3>
+            <p>Questa sezione è dedicata alla vendita di articoli casalinghi.</p>
+            <a href="casa.html">Vai alla categoria</a>
         </div>
+
+        <!-- TECNOLOGIA -->
+        <div class="card">
+            <img src="tecno.png" alt="Tecnologia">
+            <h3>Tecnologia</h3>
+            <p>Questa sezione è dedicata alla vendita di articoli tecnologici.</p>
+            <a href="tecno.html">Vai alla categoria</a>
+        </div>
+
+        <!-- GIOCHI -->
+        <div class="card">
+            <img src="giochi.png" alt="Giochi">
+            <h3>Giochi</h3>
+            <p>Questa sezione è dedicata alla vendita di giocattoli.</p>
+            <a href="giochi.html">Vai alla categoria</a>
+        </div>
+
     </div>
-
-    <h2>Annunci</h2>
-
-    <div class="annunci" id="annunci"></div>
 
 </div>
 
 <footer>
     © 2026 Mercato Smart - Creato da Aleprogramm
 </footer>
-
-<script>
-    const annunci = [
-        {
-            titolo: "TECNOLOGIA",
-            descrizione: "Questo reparto è dedicato alla tecnologia.",
-            img: "tecno.png",
-            link: "tecno.html"
-        }
-    ];
-
-
-<script>
-    const annunci = [
-        {
-            titolo: "GIOCHI",
-            descrizione: "Questo reparto è dedicato ai giochi.",
-            img: "giochi.png",
-            link: "giochi.html"
-        }
-    ];
-
-<script>
-    const annunci = [
-        {
-            titolo: "CASA",
-            descrizione: "Questo reparto è dedicato agli articoli casalinghi.",
-            img: "casa.png",
-            link: "casa.html"
-        }
-    ];
-
-<script>
-    const annunci = [
-        {
-            titolo: "",
-            descrizione: "Questo reparto è dedicato a.",
-            img: ".png",
-            link: ".html"
-        }
-    ];
-    
-    const container = document.getElementById("annunci");
-
-    if (annunci.length === 0) {
-        container.innerHTML = `
-            <div style="padding:20px; background:var(--bg-card); border-radius:12px; text-align:center;">
-                <h3>Nessun annuncio disponibile</h3>
-                <p>Invia un'email per aggiungere un oggetto da vendere.</p>
-            </div>
-        `;
-    } else {
-        annunci.forEach(a => {
-            const card = document.createElement("div");
-            card.className = "card";
-
-            card.innerHTML = `
-                <img src="${a.img}" alt="${a.titolo}">
-                <h3>${a.titolo}</h3>
-                <p>${a.descrizione}</p>
-                <a class="buy-btn" href="${a.link}">Acquista</a>
-            `;
-
-            container.appendChild(card);
-        });
-    }
-</script>
 
 </body>
 </html>
